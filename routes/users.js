@@ -13,7 +13,7 @@ router.get("/checkAuthentication", verifyToken, (req, res, next) => {
   res.send("hello use you are logged in");
 });
 
-router.get("/checkUser/:id", verifyUser, (req, res, next) => {
+router.get("/checkUser/:id", verifyUser , (req, res, next) => {
   res.send("hello use you are logged in and you can delete your account");
 });
 
