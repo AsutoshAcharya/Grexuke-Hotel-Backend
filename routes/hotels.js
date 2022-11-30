@@ -33,7 +33,11 @@ router.get("/find/:id", getHotel);
 //get all
 
 router.get("/", getAllHotels);
+
+//for featured
 router.get("/countByCity", countByCity);
+
+//for different types of hotels ,villas,resorts,apartments etc.
 router.get("/countByType", countByType);
 
 export default router;
