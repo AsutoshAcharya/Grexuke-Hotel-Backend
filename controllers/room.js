@@ -49,7 +49,7 @@ export const updateRoomAvailability = async (req, res, next) => {
       { "roomNumbers._id": req.params.id },
       {
         $push: {
-          "roomNumbers.$.unavailableDates": req.body.dates
+          "roomNumbers.$.unavailableDates": req.body.dates,
         },
       }
     );
@@ -93,7 +93,6 @@ export const getAllRooms = async (req, res, next) => {
   try {
     const rooms = await Room.find();
     res.status(200).json(rooms);
-   
   } catch (err) {
     next(err);
   }
