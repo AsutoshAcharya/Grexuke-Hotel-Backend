@@ -25,14 +25,8 @@ const BookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    bookedroom: {
-      type: String,
-      required: true,
-    },
-    bookedroomnumber: {
-      type: Number,
-      required: true,
-    },
+    bookedroom: [{ type: String, required: true }],
+    bookedroomnumber: [{ type: String, required: true }],
 
     checkindate: {
       type: String,
