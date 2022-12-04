@@ -55,3 +55,13 @@ export const deleteBooking = async (req, res, next) => {
     next(err);
   }
 };
+
+//getting single booking detail
+export const getSingleBookingDetail = async (req, res, next) => {
+  try {
+    const bookingDetails = await Booking.findById(req.params.id);
+    res.status(200).json(bookingDetails);
+  } catch (err) {
+    next(err);
+  }
+};
