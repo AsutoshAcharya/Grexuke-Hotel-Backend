@@ -35,11 +35,11 @@ const BookSchema = new mongoose.Schema(
     },
 
     checkindate: {
-      type: Date,
+      type: String,
       required: true,
     },
     checkoutdate: {
-      type: Date,
+      type: String,
       required: true,
     },
     amountpaid: {
