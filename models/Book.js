@@ -36,7 +36,7 @@ const BookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    amountpaid: {
+    amountdue: {
       type: Number,
       required: true,
     },

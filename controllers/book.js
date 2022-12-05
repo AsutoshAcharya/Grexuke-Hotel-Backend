@@ -1,12 +1,34 @@
+import sgMail from "@sendgrid/mail";
+import dotenv from "dotenv";
 import Booking from "../models/Book.js";
 
+dotenv.config();
+const API_KEY =
+  "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";
 //Booking the room
-
+sgMail.setApiKey(API_KEY);
 export const bookRoom = async (req, res, next) => {
   const bookRoom = new Booking(req.body);
 
   try {
     const bookedRoom = await bookRoom.save();
+    console.log(bookedRoom);
+
+    const message = {
+      to: "victorbiju9@gmail.com",
+      from: {
+        name: "Asu",
+        email: "asutosha109@gmail.com",
+      },
+      subject: "GreXukeBooking",
+      text: "Hello from GreXuke Booking",
+      html: "<h1>Hello User</h1>",
+    };
+    console.log(message);
+    await sgMail.send(message).then((data) => {
+      console.log("email sent...");
+    });
+
     res.status(200).json(bookedRoom);
   } catch (err) {
     next(err);
